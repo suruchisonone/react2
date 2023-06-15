@@ -1,32 +1,32 @@
-function App()
-{
-  return(
-    <>
-    <h1>
-      heloo list
-      <ListDemo/>
-    </h1>
+import {useState} from "react";
 
+
+function App(){
+  return (
+    <><h1>helllo</h1>
+    <ListDemo/>
     </>
   );
 }
 function ListDemo(){
-  let data="hello suruchi";
-  let list=["","","",""];
 
-  let list1=[];
-  for(let i=0;i<10;i++){
-    list1.push();
-  }
-  return(
-    <>
-    <h1>
-      {data}
-    </h1>
-    {list.map((item)=>(<div><h1>hello</h1></div>))}
-    
-    </>
-  )
+  let [list,setlist]=useState(["delhi"]);
+
+  let addItemAction = () => {
+    // why didn u use push method, push method update the same object
+    // setter method requires immutable object.
+    // We have to pass new list.
+    let newList = [...list, "pune","banglore"];
+    console.log(newList);
+    setlist(newList);
+};
+return (
+  <> 
+  <input type="button" value="add list" onClick={addItemAction}/>
+  {list.map((item)=>(<h1>hello {item}</h1>))}
+  </>
+);
+
 }
-
 export default App;
+
