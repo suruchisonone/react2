@@ -3,30 +3,34 @@ import {useState} from "react";
 
 function App(){
   return (
-    <><h1>helllo</h1>
+    <><h1>stateful</h1>
     <ListDemo/>
     </>
   );
 }
+
 function ListDemo(){
+  let [list,setList]=useState(["delhi"]);
 
-  let [list,setlist]=useState(["delhi"]);
+  let addlist=()=>{
+    let inputref=document.querySelector("#id1");
+    let inputvalue=inputref.value;
+    let newlist=[...list,inputvalue];
+    setList(newlist);
+    inputref.value="";
+  };
 
-  let addItemAction = () => {
-    // why didn u use push method, push method update the same object
-    // setter method requires immutable object.
-    // We have to pass new list.
-    let newList = [...list, "pune","banglore"];
-    console.log(newList);
-    setlist(newList);
-};
-return (
-  <> 
-  <input type="button" value="add list" onClick={addItemAction}/>
-  {list.map((item)=>(<h1>hello {item}</h1>))}
-  </>
-);
+  return(
+    <>
+    <input type="text" id="id1" placeholder="enter the value"/>
+    <input type="button" value="add new list" onClick={addlist}/>
 
+    {list.map((item)=>(<h1>{item}</h1>))}
+    </>
+  );
 }
+
+
+
 export default App;
 
