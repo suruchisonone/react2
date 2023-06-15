@@ -1,29 +1,32 @@
-function App(){
-  return (
-    <>
-    <h1>props </h1>
-    <MessageDemo name=" Vitthal" email=" hdhdh@" />
-      <MessageDemo name=" shivam" email=" jjjjj@" />
-      </>
-  );
-}
-
-// function MessageDemo(props){
-//   return (
-//     <>
-//     <h1>
-//       hello{props.name }{props.email }
-//     </h1>
-//     </>
-//   );
-// }
-function MessageDemo({name,email}){
+function App()
+{
   return(
     <>
     <h1>
-      hello{email}{name}
+      heloo list
+      <ListDemo/>
     </h1>
+
+    </>
+  );
+}
+function ListDemo(){
+  let data="hello suruchi";
+  let list=["","","",""];
+
+  let list1=[];
+  for(let i=0;i<10;i++){
+    list1.push();
+  }
+  return(
+    <>
+    <h1>
+      {data}
+    </h1>
+    {list.map((item)=>(<div><h1>hello</h1></div>))}
+    
     </>
   )
 }
+
 export default App;
