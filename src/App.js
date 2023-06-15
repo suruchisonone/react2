@@ -26,7 +26,22 @@ function ListDemo(){
     <input type="text" id="id1" ref={inputref} placeholder="enter the value"/>
     <input type="button" value="add new list" onClick={addlist}/>
 
-    {list.map((item)=>(<h1>{item}</h1>))}
+    {/* {list.map((item)=>(<h1>{item}</h1>))} */}
+    {list.map((item) => (
+        <div>
+          <h1>{item}</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore,
+            sit laborum quia non hic doloribus id quisquam consequuntur quis
+            iusto quod, assumenda vitae, molestias ipsa ex labore quaerat
+            ducimus accusamus.
+          </p>
+          <div>
+            <input type="button" value="&#128077;" />
+            <input type="button" value="&#128078;" />
+          </div>
+        </div>
+      ))}
     </>
   );
 }
